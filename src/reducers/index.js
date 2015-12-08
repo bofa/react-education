@@ -1,27 +1,9 @@
 import { List, Map } from 'immutable';
 import uuid from 'node-uuid';
-import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from '../actions/todo-actions';
+import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO, RECEIVE_TODOS } from '../actions/todo-actions';
 
 const defaultState = Map({
-    todos: List.of(
-        {
-            text: 'Do some stuff',
-            done: false
-        },
-        {
-            text: 'Eat stuff',
-            done: true
-        },
-        {
-            text: 'Buy new TV',
-            done: false
-        },
-    ).map(todo => {
-        return {
-            ...todo,
-            id: uuid.v4()
-        }
-    })
+    todos: List.of()
 
 });
 
@@ -50,6 +32,11 @@ export default function(state = defaultState, action) {
             return state.update('todos', todos => todos.remove(
                 todos.findIndex(t => t.id == action.payload)
             ));
+            break;
+
+        case RECEIVE_TODOS:
+            console.log("Receive");
+            return state.update('todos', todos => todos.concat( action.payload ));
             break;
 
         default:
