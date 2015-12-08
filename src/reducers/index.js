@@ -36,7 +36,20 @@ export default function(state = defaultState, action) {
             break;
 
         case TOGGLE_TODO:
-            return state.update('todos', todos => todos.findIndex(t => t.id == id));
+            console.log("Toggle");
+            return state.update('todos', todos => todos.map( t => {
+                return {
+                    ...t,
+                    done: t.id===action.payload ? !t.done : t.done
+                }
+            }));
+            break;
+
+        case REMOVE_TODO:
+            console.log("Remove", );
+            return state.update('todos', todos => todos.remove(
+                todos.findIndex(t => t.id == action.payload)
+            ));
             break;
 
         default:

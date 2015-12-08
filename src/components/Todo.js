@@ -18,7 +18,6 @@ export default ({ todo, onRemove, toggleTodo }) => {
                 <span onClick={toggleTodo.bind(null, todo.id)}
                         className={classes}>{todo.text}</span>
                 <button onClick={onRemove.bind(null, todo.id)}>Be Gone!</button>
-
             </span>
         </li>
     );
