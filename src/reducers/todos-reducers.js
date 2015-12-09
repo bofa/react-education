@@ -4,7 +4,6 @@ import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO, RECEIVE_TODOS } from '../actions/to
 
 const defaultState = Map({
     todos: List.of()
-
 });
 
 export default function(state = defaultState, action) {
@@ -20,7 +19,7 @@ export default function(state = defaultState, action) {
         case TOGGLE_TODO:
             console.log("Toggle");
             return state.update('todos', todos => todos.map( t => {
-                return
+                return {
                     ...t,
                     done: t.id===action.payload ? !t.done : t.done
                 }
@@ -43,3 +42,4 @@ export default function(state = defaultState, action) {
             return state;
     }
 }
+

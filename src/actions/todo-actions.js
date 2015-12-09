@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { List } from 'immutable'
+import { List, MAP } from 'immutable'
 
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
@@ -35,6 +35,8 @@ export function reciveTodos(todos) {
         axios.get('/api/todo')
             .then(response => response.data)
             .then(todos => {
+
+
                 dispatch({
                     type: RECEIVE_TODOS,
                     payload: List(todos)
