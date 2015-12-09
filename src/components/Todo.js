@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import { Link } from 'react-router';
 
 export default ({ todo, onRemove, toggleTodo }) => {
 
@@ -14,11 +15,11 @@ export default ({ todo, onRemove, toggleTodo }) => {
 
     return (
         <li>
-            <span>
-                <span onClick={toggleTodo.bind(null, todo.id)}
-                        className={classes}>{todo.text}</span>
-                <button onClick={onRemove.bind(null, todo.id)}>Be Gone!</button>
-            </span>
+            <Link className="{classes}" to={`/todo/${todo.id}`}>
+                {todo.text}
+            </Link>
+            <button onClick={toggleTodo.bind(null, todo.id)}>Toggle</button>
+            <button onClick={onRemove.bind(null, todo.id)}>Be Gone!</button>
         </li>
     );
 

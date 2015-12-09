@@ -1,8 +1,8 @@
 import React from 'react';
-import TodoList from './TodoList';
-import TodoFormSave from './TodoFormSave';
-import TodoForm from './TodoForm';
+
 // import todos from '../todos';
+// import TodoApp = from './components/smart/TodoAppContainer';
+// import IndexPage = from './components/smart/IndexPageContainer';
 
 import { List } from 'immutable';
 
@@ -15,9 +15,11 @@ export default class TodoApp extends React.Component {
 
         return (
             <div>
-                <TodoList toggleTodo={toggleTodo} onRemove={removeTodo} todos={todos} />
-                <TodoForm onAdd={addTodo} />
-                <TodoFormSave saveTodos={saveTodos} todos={todos} />
+                <h1>Behond here there be TODOS!</h1>
+
+                {this.props.children}
+
+
             </div>
         );
     }

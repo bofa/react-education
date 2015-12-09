@@ -52,18 +52,4 @@ export function saveTodos(todos) {
         type: SAVE_TODOS,
         payload: todos
     };
-
-    /*
-    return function(dispatch) {
-        axios.get('/api/todo')
-            .then(response => response.data)
-            .then(todos => {
-                dispatch({
-                    type: RECEIVE_TODOS,
-                    payload: List(todos)
-                });
-            });
-
-    };
-    */
 }
